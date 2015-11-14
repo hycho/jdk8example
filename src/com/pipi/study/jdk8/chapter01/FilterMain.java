@@ -2,6 +2,7 @@ package com.pipi.study.jdk8.chapter01;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -20,9 +21,15 @@ public class FilterMain {
 			new Persimmon("green", 350),
 			new Persimmon("orange", 200)
 		);
+	
+		List<Persimmon> result = filter(inventory, (Persimmon p) -> "green".equals(p.getColor())); //추론하지 않음.
 		
-		//람다 표현식 사용
-		List<Persimmon> result = filter(inventory, (Persimmon p) -> "green".equals(p.getColor()));
+		List<Persimmon> result1 = filter(inventory, (p) -> "green".equals(p.getColor()));	//추론함.
+		
+		for(Persimmon persimmon : result1) {
+			System.out.println(persimmon.toString());
+		}
+		
 		for(Persimmon persimmon : result) {
 			System.out.println(persimmon.toString());
 		}

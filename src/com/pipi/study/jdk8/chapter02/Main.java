@@ -3,7 +3,14 @@ package com.pipi.study.jdk8.chapter02;
 public class Main {
 
 	public static void main(String[] args) {
-		runTestProcess2();
+//		runTestProcess2();
+		inValue();
+	}
+	
+	public static void inValue() {
+		String number = "51";
+		Runnable r = () -> System.out.println(number);
+		r.run();
 	}
 	
 	public static void runTestProcess1() {
@@ -21,8 +28,9 @@ public class Main {
 		process(r1);
 		process(r2);
 		process(() -> System.out.println("Run 3")); // 직접 파라메터로 람다 표현식을 전달.
+		
 	}
-	
+		
 	public static void runTestProcess2() {
 		process(() -> System.out.println("Lamda :D"));
 	}
@@ -30,5 +38,6 @@ public class Main {
 	public static void process(Runnable r) {
 		r.run();
 	}
+	
 	
 }
